@@ -33,7 +33,7 @@ router.post("/users", async (req, res) => {
 });
 
 // Update user location
-router.put('/users/:id/location', async (req, res) => {
+router.put('/users/location/:id', async (req, res) => {
   try{
     const { id } = req.params;
     const { location } = req.body;
@@ -45,7 +45,7 @@ router.put('/users/:id/location', async (req, res) => {
 });
 
 // Get user weather data
-router.get('/users/:id/weather', async (req, res) => {
+router.get('/users/weather/:id', async (req, res) => {
   try {
       const { id } = req.params;
       const user = await User.findById(id);
