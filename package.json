@@ -1,0 +1,33 @@
+{
+  "name": "Weather-App",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js",
+    "frontend": "npm run start --prefix frontend",
+    "dev": "concurrently \"npm run server\""
+  },
+  "author": "Dhanushka",
+  "license": "ISC",
+  "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.4.0",
+    "axios": "^1.7.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "concurrently": "^7.1.0",
+    "core-js": "^3.37.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.3.0",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.13",
+    "nodemon": "^2.0.15",
+    "openai": "^4.0.0",
+    "react-hooks-useform": "^0.1.86",
+    "react-router-dom": "^6.22.3"
+  }
+}
