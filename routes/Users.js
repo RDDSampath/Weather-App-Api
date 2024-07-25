@@ -34,13 +34,22 @@ router.post("/users", async (req, res) => {
 
 // Update user location
 router.put('/users/location/:id', async (req, res) => {
-  try{
+  try {
     const { id } = req.params;
     const { location } = req.body;
     const user = await User.findByIdAndUpdate(id, { location }, { new: true });
-    res.send(user);
+
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+
+    // Remove the password from the user object
+    const userWithoutPassword = user.toObject();
+    delete userWithoutPassword.password;
+
+    res.send(userWithoutPassword);
   } catch (error) {
-    res.status(404).send('User not found');
+    res.status(500).send('Error updating user location');
   }
 });
 
