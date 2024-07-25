@@ -66,13 +66,14 @@ async function sendWeatherEmails() {
     for (const user of users) {
       const weatherData = await fetchWeatherData(user.location.lat, user.location.lon);
       await sendWeatherEmail(user, weatherData);
+      await new Promise(resolve => setTimeout(resolve, 1000));
     }
   } catch (error) {
     console.error('Error during weather email process:', error);
   }
 }
 
-cron.schedule('* */3 * * *', sendWeatherEmails);
+cron.schedule('1 */3 * * *', sendWeatherEmails);
 
 
 module.exports = router;
