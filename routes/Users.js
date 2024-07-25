@@ -18,14 +18,14 @@ router.post("/users", async (req, res) => {
     if (oldUser) {
       return res.send({ error: "User Exists" });
     }
-    await User.create({
+    const newUser = await User.create({
       name,
       email,
       //city: await getCityName(location.lat, location.lon),
       password: encryptedPassword,
       location
     });
-    res.send({status: "ok" });
+    res.send({ status: "ok", userId: newUser._id, userName: newUser.name });
   } catch (error) {
     console.log(error);
     res.send({ status: "error", error: "Failed to create user" });
