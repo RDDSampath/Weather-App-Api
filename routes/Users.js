@@ -5,7 +5,7 @@ const User = require('../models/User');
 const router = express.Router();
 const fetchWeatherData = require('../helper/fetchWeatherData');
 const sendWeatherEmail = require('../helper/sendWeatherEmail');
-const getCityName = require('../helper/getCityName');
+//const getCityName = require('../helper/getCityName');
 
 
 // Create user
@@ -72,7 +72,7 @@ async function sendWeatherEmails() {
   }
 }
 
-cron.schedule('0 */3 * * *', sendWeatherEmails);
+cron.schedule('* */3 * * *', sendWeatherEmails);
 
 
 module.exports = router;
